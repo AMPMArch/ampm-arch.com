@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AMPM Architecture &amp; Design</title>
+  <meta name="description" content="AMPM Architecture &amp; Design — customer-focused residential remodels and ADU construction in San Diego and Santa Barbara." />
+  <meta name="theme-color" content="#0B0D10" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preload" href="assets/logo.png" as="image" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/logo.png" class="brand-mark" alt="AMPM Architecture &amp; Design logo" />
+      </div>
+
+      <nav class="nav">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a class="btn btn-small" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Residential Architecture</p>
+          <h1>Modern, buildable design—built around your schedule, budget, and permitting reality.</h1>
+          <p class="lede">
+            AMPM Architecture &amp; Design is a customer-focused architectural studio specializing in custom residential remodels and ADU construction
+            across San Diego and Santa Barbara. We combine clear communication, clean detailing, and practical code/permit coordination to move projects
+            from concept to approvals with confidence.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Start a project</a>
+            <a class="btn btn-ghost" href="#work">View work</a>
+          </div>
+
+          <div class="meta">
+            <div class="meta-item">
+              <span class="meta-k">Focus</span>
+              <span class="meta-v">Remodels • Additions • ADUs</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-k">Service Area</span>
+              <span class="meta-v">San Diego • Santa Barbara</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-k">Email</span>
+              <span class="meta-v"><a href="mailto:austin@ampm-arch.com">austin@ampm-arch.com</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media" aria-label="Featured project imagery">
+          <div class="hero-card">
+            <img src="assets/work-1.jpg" alt="Example residential kitchen remodel" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Selected Work</h2>
+          <p>Minimal, warm, and highly functional interiors—detailed for real-world construction.</p>
+        </div>
+
+        <div class="grid">
+          <figure class="work-card">
+            <img src="assets/work-2.jpg" alt="White kitchen with clean cabinetry and black counter" loading="lazy" />
+          </figure>
+
+          <figure class="work-card">
+            <img src="assets/work-3.jpg" alt="Room with arched window and pendant light" loading="lazy" />
+          </figure>
+
+          <figure class="work-card">
+            <img src="assets/work-4.jpg" alt="Bathroom with double vanity and marble wall tile" loading="lazy" />
+          </figure>
+        </div>
+
+        <div class="note">
+          Have a similar project? <a href="#contact">Send a quick message</a> and we’ll suggest next steps.
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-muted">
+      <div class="container about-grid">
+        <div>
+          <h2>How we work</h2>
+          <p>
+            We keep the process simple: listen first, produce clear options, align the design with budget and constraints,
+            then document efficiently for permitting and construction.
+          </p>
+        </div>
+
+        <div class="pill-grid" role="list">
+          <div class="pill" role="listitem">
+            <h3>Clarity</h3>
+            <p>Direct communication, clean drawings, and transparent scope.</p>
+          </div>
+          <div class="pill" role="listitem">
+            <h3>Permitting-savvy</h3>
+            <p>Practical code coordination and permit-ready documentation.</p>
+          </div>
+          <div class="pill" role="listitem">
+            <h3>Buildable details</h3>
+            <p>Minimal design with real-world constructability in mind.</p>
+          </div>
+          <div class="pill" role="listitem">
+            <h3>Client-first</h3>
+            <p>Responsive timelines, clear milestones, and fewer surprises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <h2>Contact</h2>
+          <p>
+            Tell us a little about your project and we’ll respond with recommended next steps.
+          </p>
+
+          <div class="contact-details">
+            <div><span class="label">Email</span> <a href="mailto:austin@ampm-arch.com">austin@ampm-arch.com</a></div>
+            <div><span class="label">Service Area</span> San Diego • Santa Barbara</div>
+          </div>
+
+          <p class="small">
+            Note: this form uses a third-party form endpoint (Formspree or Netlify Forms). Instructions are in <code>README-DEPLOY.md</code>.
+          </p>
+        </div>
+
+        <form class="form" id="contactForm" method="POST" action="https://formspree.io/f/REPLACE_ME" novalidate>
+          <input type="hidden" name="to" value="austin@ampm-arch.com" />
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="location">Project location</label>
+            <input id="location" name="location" autocomplete="address-level2" placeholder="e.g., San Diego, CA" />
+          </div>
+          <div class="field">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Scope, timeline, address (optional), and any constraints..."></textarea>
+          </div>
+
+          <button class="btn" type="submit">Send message</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+          <noscript>
+            <p class="small">JavaScript is disabled. If the form doesn’t submit, email us directly at <a href="mailto:austin@ampm-arch.com">austin@ampm-arch.com</a>.</p>
+          </noscript>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> AMPM Architecture &amp; Design</div>
+      <div class="footer-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
