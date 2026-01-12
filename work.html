@@ -37,13 +37,29 @@
     <p class="sub">Selected images from recent residential projects.</p>
   </section>
 
-  <section class="grid">
-    <img src="assets/work-1.jpg" alt="Residential project photo 1" loading="lazy" />
-    <img src="assets/work-2.jpg" alt="Residential project photo 2" loading="lazy" />
-    <img src="assets/work-3.jpg" alt="Residential project photo 3" loading="lazy" />
-    <img src="assets/work-4.jpg" alt="Residential project photo 4" loading="lazy" />
+  <section class="grid" aria-label="Project photo gallery">
+    <button class="thumb" type="button" data-full="assets/work-1.jpg" aria-label="Open photo 1">
+      <img src="assets/work-1.jpg" alt="Residential project photo 1" loading="lazy" />
+    </button>
+    <button class="thumb" type="button" data-full="assets/work-2.jpg" aria-label="Open photo 2">
+      <img src="assets/work-2.jpg" alt="Residential project photo 2" loading="lazy" />
+    </button>
+    <button class="thumb" type="button" data-full="assets/work-3.jpg" aria-label="Open photo 3">
+      <img src="assets/work-3.jpg" alt="Residential project photo 3" loading="lazy" />
+    </button>
+    <button class="thumb" type="button" data-full="assets/work-4.jpg" aria-label="Open photo 4">
+      <img src="assets/work-4.jpg" alt="Residential project photo 4" loading="lazy" />
+    </button>
   </section>
 </main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-backdrop" data-close="true"></div>
+  <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" type="button" data-close="true" aria-label="Close">✕</button>
+    <img id="lightboxImg" alt="" />
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">

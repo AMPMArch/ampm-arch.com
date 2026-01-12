@@ -31,39 +31,75 @@
     });
   }
 
+  // Lightbox (Our Work)
+  const lb = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lightboxImg");
+  const openLb = (src, alt) => {
+    if (!lb || !lbImg) return;
+    lbImg.src = src;
+    lbImg.alt = alt || "";
+    lb.classList.add("open");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+  const closeLb = () => {
+    if (!lb || !lbImg) return;
+    lb.classList.remove("open");
+    lb.setAttribute("aria-hidden", "true");
+    lbImg.src = "";
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll(".thumb").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const img = btn.querySelector("img");
+      openLb(btn.dataset.full, img?.alt);
+    });
+  });
+
+  if (lb) {
+    lb.addEventListener("click", (e) => {
+      const t = e.target;
+      if (t && t.dataset && t.dataset.close === "true") closeLb();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLb();
+    });
+  }
+
   // Contact form
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
-  if (!form) return;
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (status) status.textContent = "";
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (status) status.textContent = "";
+      const name = form.querySelector("#name")?.value?.trim();
+      const email = form.querySelector("#email")?.value?.trim();
+      const message = form.querySelector("#message")?.value?.trim();
 
-    const name = form.querySelector("#name")?.value?.trim();
-    const email = form.querySelector("#email")?.value?.trim();
-    const message = form.querySelector("#message")?.value?.trim();
-
-    if (!name || !email || !message) {
-      if (status) status.textContent = "Please fill out your name, email, and project details.";
-      return;
-    }
-
-    try {
-      const res = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" },
-      });
-
-      if (res.ok) {
-        form.reset();
-        if (status) status.textContent = "Thanks — message sent. We’ll get back to you shortly.";
-      } else {
-        if (status) status.textContent = "Message failed to send. Please email austin@ampm-arch.com.";
+      if (!name || !email || !message) {
+        if (status) status.textContent = "Please fill out your name, email, and project details.";
+        return;
       }
-    } catch {
-      if (status) status.textContent = "Network error. Please email austin@ampm-arch.com.";
-    }
-  });
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" },
+        });
+
+        if (res.ok) {
+          form.reset();
+          if (status) status.textContent = "Thanks — message sent. We’ll get back to you shortly.";
+        } else {
+          if (status) status.textContent = "Message failed to send. Please email austin@ampm-arch.com.";
+        }
+      } catch {
+        if (status) status.textContent = "Network error. Please email austin@ampm-arch.com.";
+      }
+    });
+  }
 })();

@@ -1,11 +1,12 @@
-# AMPM Architecture & Design — minimal site (v3)
+# AMPM Architecture & Design — minimal site (v4)
 
-Updates:
-- Home: static hero with generic abstract background + logo + text overlay
-- Menu: top-right hamburger that expands on hover, click-to-toggle on mobile
-- Work: photo grid with no captions
-- Global: square corners (no border-radius anywhere)
-- Contact form: Formspree endpoint https://formspree.io/f/mwvvkkkg
+Changes requested:
+- Home background photo (beachfront modern home) stored locally as /assets/hero.jpg
+- Work page: smaller thumbnails that open full-size in a lightbox modal
+- Font: using Inter (Google Fonts) as a free, close alternative to GT America.
+
+About GT America:
+- GT America is a licensed font. If you own it, you can self-host webfont files in /assets/fonts and replace the @import with @font-face rules.
 
 Deploy:
 - Upload all files to your GitHub repo root (not inside a folder)
