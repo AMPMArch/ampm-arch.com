@@ -2,13 +2,36 @@
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  // Highlight active nav item
+  // Active menu item
   const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   const key = path.includes("work") ? "work" : path.includes("contact") ? "contact" : "home";
-  document.querySelectorAll(".nav a").forEach(a => {
+  document.querySelectorAll(".menu-panel a").forEach(a => {
     if (a.dataset.nav === key) a.classList.add("active");
   });
 
+  // Click-to-toggle menu for mobile + keyboard
+  const menu = document.getElementById("menu");
+  const btn = document.getElementById("menuBtn");
+  const panel = document.getElementById("menuPanel");
+  if (menu && btn && panel) {
+    const close = () => {
+      menu.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+    };
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const open = menu.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target)) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+  }
+
+  // Contact form
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
   if (!form) return;

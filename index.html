@@ -3,64 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#0b0d10" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="styles.css" />
 
   <title>AMPM Architecture &amp; Design</title>
   <meta name="description" content="AMPM Architecture &amp; Design — custom residential remodels and ADU construction in San Diego and Santa Barbara." />
 </head>
-<body>
+<body class="home">
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="index.html" aria-label="AMPM Architecture &amp; Design home">
       <img src="assets/logo.png" alt="AMPM Architecture &amp; Design" />
     </a>
 
-    <nav class="nav" aria-label="Primary">
-      <a href="index.html" data-nav="home">Home</a>
-      <a href="work.html" data-nav="work">Our Work</a>
-      <a href="contact.html" data-nav="contact">Contact</a>
-    </nav>
+    <div class="menu" id="menu">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="menu-panel" id="menuPanel" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="work.html" data-nav="work">Our Work</a>
+        <a href="contact.html" data-nav="contact">Contact</a>
+      </nav>
+    </div>
   </div>
 </header>
 
 
-<main class="wrap">
-  <section class="landing">
-    <div class="landing-left">
-      <h1>Customer-focused residential architecture.</h1>
-      <p class="lead">
-        AMPM Architecture &amp; Design specializes in custom residential remodels, additions, and ADU construction
-        across San Diego and Santa Barbara. We deliver clear design options, permit-ready documentation, and
-        responsive communication from concept through construction.
-      </p>
-
-      <div class="actions">
-        <a class="btn" href="contact.html">Contact</a>
-        <a class="btn btn-ghost" href="work.html">View work</a>
+<main class="home-hero" role="main">
+  <div class="home-overlay">
+    <div class="home-content wrap">
+      <div class="home-logo">
+        <img src="assets/logo.png" alt="AMPM Architecture &amp; Design" />
       </div>
 
-      <div class="micro">
-        <div class="micro-item"><span>Services</span><strong>Remodels • Additions • ADUs</strong></div>
-        <div class="micro-item"><span>Email</span><strong><a href="mailto:austin@ampm-arch.com">austin@ampm-arch.com</a></strong></div>
-      </div>
-    </div>
+      <div class="home-text">
+        <p>
+          AMPM Architecture &amp; Design is a customer-focused architectural firm specializing in custom residential remodels,
+          additions, and ADU construction across San Diego and Santa Barbara. We prioritize clear communication, thoughtful
+          design options, and permit-ready documentation to keep projects moving from concept through construction.
+        </p>
 
-    <div class="landing-right">
-      <div class="image-frame">
-        <img src="assets/work-1.jpg" alt="Featured project image" loading="eager" />
+        <div class="home-actions">
+          <a class="btn" href="work.html">View Work</a>
+          <a class="btn btn-ghost" href="contact.html">Contact</a>
+        </div>
+
+        <div class="home-meta">
+          <span>Remodels</span><span class="sep">/</span><span>Additions</span><span class="sep">/</span><span>ADUs</span>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <div class="foot-left">
-      <div class="foot-title">AMPM Architecture &amp; Design</div>
-      <div class="foot-meta">San Diego • Santa Barbara</div>
-    </div>
+    <div>AMPM Architecture &amp; Design — San Diego • Santa Barbara</div>
     <div class="foot-right">
       <a href="mailto:austin@ampm-arch.com">austin@ampm-arch.com</a>
       <span class="dot">·</span>

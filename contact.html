@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#0b0d10" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="styles.css" />
 
@@ -17,11 +17,16 @@
       <img src="assets/logo.png" alt="AMPM Architecture &amp; Design" />
     </a>
 
-    <nav class="nav" aria-label="Primary">
-      <a href="index.html" data-nav="home">Home</a>
-      <a href="work.html" data-nav="work">Our Work</a>
-      <a href="contact.html" data-nav="contact">Contact</a>
-    </nav>
+    <div class="menu" id="menu">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="menu-panel" id="menuPanel" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="work.html" data-nav="work">Our Work</a>
+        <a href="contact.html" data-nav="contact">Contact</a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -29,22 +34,22 @@
 <main class="wrap">
   <section class="page-head">
     <h1>Contact</h1>
-    <p class="lead small">Share your scope, location, and timeline. We’ll get back to you shortly.</p>
+    <p class="sub">Share your scope, location, and timeline. We’ll get back to you shortly.</p>
   </section>
 
-  <section class="contact-grid">
-    <div class="contact-aside">
-      <div class="stack">
-        <div class="label">Email</div>
-        <div class="value"><a href="mailto:austin@ampm-arch.com">austin@ampm-arch.com</a></div>
+  <section class="contact">
+    <div class="contact-left">
+      <div class="k">
+        <div class="k-label">Email</div>
+        <div class="k-value"><a href="mailto:austin@ampm-arch.com">austin@ampm-arch.com</a></div>
       </div>
-      <div class="stack">
-        <div class="label">Service Area</div>
-        <div class="value">San Diego • Santa Barbara</div>
+      <div class="k">
+        <div class="k-label">Service Area</div>
+        <div class="k-value">San Diego • Santa Barbara</div>
       </div>
-      <div class="stack">
-        <div class="label">Typical work</div>
-        <div class="value">Remodels, additions, ADUs</div>
+      <div class="k">
+        <div class="k-label">Typical Work</div>
+        <div class="k-value">Remodels, additions, ADUs</div>
       </div>
     </div>
 
@@ -78,10 +83,7 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <div class="foot-left">
-      <div class="foot-title">AMPM Architecture &amp; Design</div>
-      <div class="foot-meta">San Diego • Santa Barbara</div>
-    </div>
+    <div>AMPM Architecture &amp; Design — San Diego • Santa Barbara</div>
     <div class="foot-right">
       <a href="mailto:austin@ampm-arch.com">austin@ampm-arch.com</a>
       <span class="dot">·</span>

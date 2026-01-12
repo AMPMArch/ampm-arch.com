@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#0b0d10" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="styles.css" />
 
@@ -17,11 +17,16 @@
       <img src="assets/logo.png" alt="AMPM Architecture &amp; Design" />
     </a>
 
-    <nav class="nav" aria-label="Primary">
-      <a href="index.html" data-nav="home">Home</a>
-      <a href="work.html" data-nav="work">Our Work</a>
-      <a href="contact.html" data-nav="contact">Contact</a>
-    </nav>
+    <div class="menu" id="menu">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="menu-panel" id="menuPanel" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="work.html" data-nav="work">Our Work</a>
+        <a href="contact.html" data-nav="contact">Contact</a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -29,41 +34,20 @@
 <main class="wrap">
   <section class="page-head">
     <h1>Our Work</h1>
-    <p class="lead small">
-      A few examples of recent residential interiors and remodel work. (More projects can be added anytime.)
-    </p>
+    <p class="sub">Selected images from recent residential projects.</p>
   </section>
 
-  <section class="gallery">
-    <figure class="card">
-      <img src="assets/work-2.jpg" alt="Kitchen remodel — clean cabinetry and dark countertop" loading="lazy" />
-      <figcaption>Kitchen remodel</figcaption>
-    </figure>
-    <figure class="card">
-      <img src="assets/work-3.jpg" alt="Living space — arched window and pendant light" loading="lazy" />
-      <figcaption>Interior refresh</figcaption>
-    </figure>
-    <figure class="card">
-      <img src="assets/work-4.jpg" alt="Bathroom remodel — double vanity and marble tile wall" loading="lazy" />
-      <figcaption>Bathroom remodel</figcaption>
-    </figure>
-  </section>
-
-  <section class="cta-strip">
-    <div class="cta-copy">
-      <h2>Have a project in mind?</h2>
-      <p class="small">Send a quick note and we’ll respond with suggested next steps.</p>
-    </div>
-    <a class="btn" href="contact.html">Contact</a>
+  <section class="grid">
+    <img src="assets/work-1.jpg" alt="Residential project photo 1" loading="lazy" />
+    <img src="assets/work-2.jpg" alt="Residential project photo 2" loading="lazy" />
+    <img src="assets/work-3.jpg" alt="Residential project photo 3" loading="lazy" />
+    <img src="assets/work-4.jpg" alt="Residential project photo 4" loading="lazy" />
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <div class="foot-left">
-      <div class="foot-title">AMPM Architecture &amp; Design</div>
-      <div class="foot-meta">San Diego • Santa Barbara</div>
-    </div>
+    <div>AMPM Architecture &amp; Design — San Diego • Santa Barbara</div>
     <div class="foot-right">
       <a href="mailto:austin@ampm-arch.com">austin@ampm-arch.com</a>
       <span class="dot">·</span>
