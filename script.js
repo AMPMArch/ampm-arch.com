@@ -12,8 +12,7 @@
   // Click-to-toggle menu for mobile + keyboard
   const menu = document.getElementById("menu");
   const btn = document.getElementById("menuBtn");
-  const panel = document.getElementById("menuPanel");
-  if (menu && btn && panel) {
+  if (menu && btn) {
     const close = () => {
       menu.classList.remove("open");
       btn.setAttribute("aria-expanded", "false");
@@ -23,15 +22,11 @@
       const open = menu.classList.toggle("open");
       btn.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    document.addEventListener("click", (e) => {
-      if (!menu.contains(e.target)) close();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") close();
-    });
+    document.addEventListener("click", (e) => { if (!menu.contains(e.target)) close(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
   }
 
-  // Lightbox (Our Work)
+  // Lightbox (project pages)
   const lb = document.getElementById("lightbox");
   const lbImg = document.getElementById("lightboxImg");
   const openLb = (src, alt) => {
@@ -50,10 +45,10 @@
     document.body.style.overflow = "";
   };
 
-  document.querySelectorAll(".thumb").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const img = btn.querySelector("img");
-      openLb(btn.dataset.full, img?.alt);
+  document.querySelectorAll(".thumb").forEach((b) => {
+    b.addEventListener("click", () => {
+      const img = b.querySelector("img");
+      openLb(b.dataset.full, img?.alt);
     });
   });
 
@@ -62,9 +57,7 @@
       const t = e.target;
       if (t && t.dataset && t.dataset.close === "true") closeLb();
     });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeLb();
-    });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLb(); });
   }
 
   // Contact form
@@ -95,10 +88,10 @@
           form.reset();
           if (status) status.textContent = "Thanks — message sent. We’ll get back to you shortly.";
         } else {
-          if (status) status.textContent = "Message failed to send. Please email austin@ampm-arch.com.";
+          if (status) status.textContent = "Message failed to send. Please email info@ampm-arch.com.";
         }
       } catch {
-        if (status) status.textContent = "Network error. Please email austin@ampm-arch.com.";
+        if (status) status.textContent = "Network error. Please email info@ampm-arch.com.";
       }
     });
   }

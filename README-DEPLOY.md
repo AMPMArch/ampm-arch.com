@@ -1,12 +1,14 @@
-# AMPM Architecture & Design — minimal site (v4)
+# AMPM Architecture & Design — site (v5)
 
-Changes requested:
-- Home background photo (beachfront modern home) stored locally as /assets/hero.jpg
-- Work page: smaller thumbnails that open full-size in a lightbox modal
-- Font: using Inter (Google Fonts) as a free, close alternative to GT America.
+Markups applied:
+- Global font: Franklin Gothic (system font; fallbacks included)
+- Logo in top-left: 1.5x larger
+- Email updated to: info@ampm-arch.com (everywhere)
 
-About GT America:
-- GT America is a licensed font. If you own it, you can self-host webfont files in /assets/fonts and replace the @import with @font-face rules.
+Our Work:
+- Project tiles with ghosted text overlay
+- Each tile links to a project page with an expandable photo gallery (lightbox)
+- Photos imported from the attached "Final Photos.zip" folder structure into /assets/projects/<project>/
 
 Deploy:
 - Upload all files to your GitHub repo root (not inside a folder)
