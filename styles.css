@@ -10,6 +10,15 @@
   --font: "Franklin Gothic Medium","Franklin Gothic","ITC Franklin Gothic",Arial,sans-serif;
 }
 
+/* Global font enforcement */
+html, body, button, input, textarea, select, option {
+  font-family: var(--font);
+}
+* {
+  font-family: inherit;
+}
+
+
 /* No rounded corners anywhere */
 *{box-sizing:border-box; border-radius:0 !important}
 
@@ -115,7 +124,7 @@ body.home{background:var(--bg); color:#fff}
 .tiles{
   display:grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:12px;
+  gap:18px;
   padding: 12px 0 52px;
 }
 .tile{
@@ -125,7 +134,7 @@ body.home{background:var(--bg); color:#fff}
   overflow:hidden;
   display:block;
 }
-.tile img{width:100%; height: 260px; object-fit:cover; display:block}
+.tile img{width:100%; aspect-ratio: 1 / 1; object-fit:cover; display:block}
 .tile-overlay{
   position:absolute; inset:0;
   display:flex; align-items:flex-end;
@@ -237,10 +246,15 @@ textarea{resize: vertical}
 
 /* Responsive */
 @media (max-width: 900px){
-  .tiles{grid-template-columns: 1fr}
+  .tiles{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:18px;
+  padding: 12px 0 52px;
+}
   .grid{grid-template-columns: 1fr}
   .thumb img{height: 240px}
-  .tile img{height: 240px}
+  .tile img{width:100%; aspect-ratio: 1 / 1; object-fit:cover; display:block}
   .contact{grid-template-columns: 1fr}
   .brand img{height:72px}
   .menu-panel{top: 50px}
