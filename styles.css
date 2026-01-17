@@ -123,8 +123,8 @@ body.home{background:var(--bg); color:#fff}
 /* Our Work tiles */
 .tiles{
   display:grid;
-  grid-template-columns: repeat(auto-fill, 200px);
-  gap:24px;
+  grid-template-columns: repeat(auto-fill, 400px);
+  gap:28px;
   padding: 12px 0 52px;
   justify-content:start;
 }
@@ -137,7 +137,7 @@ body.home{background:var(--bg); color:#fff}
   align-items:center;
   justify-content:center;
 }
-.tile img{width:200px; height:200px; object-fit:cover; display:block}
+.tile img{width:400px; height:400px; object-fit:cover; display:block}
 .tile-overlay{
   position:absolute; inset:0;
   display:flex; align-items:flex-end;
@@ -251,15 +251,38 @@ textarea{resize: vertical}
 @media (max-width: 900px){
   .tiles{
   display:grid;
-  grid-template-columns: repeat(auto-fill, 200px);
-  gap:24px;
+  grid-template-columns: repeat(auto-fill, 400px);
+  gap:28px;
   padding: 12px 0 52px;
   justify-content:start;
 }
   .grid{grid-template-columns: 1fr}
   .thumb img{height: 240px}
-  .tile img{width:200px; height:200px; object-fit:cover; display:block}
+  .tile img{width:400px; height:400px; object-fit:cover; display:block}
   .contact{grid-template-columns: 1fr}
   .brand img{height:72px}
   .menu-panel{top: 50px}
+}
+
+/* Non-home page margins */
+body:not(.home) main.wrap{
+  padding-top: 18px;
+  padding-bottom: 36px;
+}
+body:not(.home) .page-head{
+  padding-top: 18px;
+}
+
+/* Project pages: full-size images (no lightbox) */
+.proj-gallery{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  padding: 12px 0 14px;
+}
+.proj-gallery img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid rgba(11,13,16,.14);
 }

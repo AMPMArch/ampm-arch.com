@@ -26,40 +26,6 @@
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
   }
 
-  // Lightbox (project pages)
-  const lb = document.getElementById("lightbox");
-  const lbImg = document.getElementById("lightboxImg");
-  const openLb = (src, alt) => {
-    if (!lb || !lbImg) return;
-    lbImg.src = src;
-    lbImg.alt = alt || "";
-    lb.classList.add("open");
-    lb.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  };
-  const closeLb = () => {
-    if (!lb || !lbImg) return;
-    lb.classList.remove("open");
-    lb.setAttribute("aria-hidden", "true");
-    lbImg.src = "";
-    document.body.style.overflow = "";
-  };
-
-  document.querySelectorAll(".thumb").forEach((b) => {
-    b.addEventListener("click", () => {
-      const img = b.querySelector("img");
-      openLb(b.dataset.full, img?.alt);
-    });
-  });
-
-  if (lb) {
-    lb.addEventListener("click", (e) => {
-      const t = e.target;
-      if (t && t.dataset && t.dataset.close === "true") closeLb();
-    });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLb(); });
-  }
-
   // Contact form
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
