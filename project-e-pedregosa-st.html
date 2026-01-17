@@ -34,15 +34,25 @@
 <main class="wrap">
   <section class="page-head">
     <h1>E Pedregosa St</h1>
-    <p class="sub">Project photos.</p>
+    <p class="sub">Click any photo to enlarge.</p>
   </section>
 
-  <section class="proj-gallery" aria-label="E Pedregosa St photo gallery">
-    <img src="assets/projects/e-pedregosa-st/01.jpg" alt="E Pedregosa St photo 1" loading="lazy" />
-<img src="assets/projects/e-pedregosa-st/02.jpg" alt="E Pedregosa St photo 2" loading="lazy" />
-<img src="assets/projects/e-pedregosa-st/03.jpg" alt="E Pedregosa St photo 3" loading="lazy" />
-<img src="assets/projects/e-pedregosa-st/04.jpg" alt="E Pedregosa St photo 4" loading="lazy" />
-<img src="assets/projects/e-pedregosa-st/05.jpg" alt="E Pedregosa St photo 5" loading="lazy" />
+  <section class="grid" aria-label="E Pedregosa St photo gallery">
+    <button class="thumb" type="button" data-full="assets/projects/e-pedregosa-st/01.jpg" aria-label="Open photo">
+      <img src="assets/projects/e-pedregosa-st/01.jpg" alt="E Pedregosa St photo 1" loading="lazy" />
+    </button>
+<button class="thumb" type="button" data-full="assets/projects/e-pedregosa-st/02.jpg" aria-label="Open photo">
+      <img src="assets/projects/e-pedregosa-st/02.jpg" alt="E Pedregosa St photo 2" loading="lazy" />
+    </button>
+<button class="thumb" type="button" data-full="assets/projects/e-pedregosa-st/03.jpg" aria-label="Open photo">
+      <img src="assets/projects/e-pedregosa-st/03.jpg" alt="E Pedregosa St photo 3" loading="lazy" />
+    </button>
+<button class="thumb" type="button" data-full="assets/projects/e-pedregosa-st/04.jpg" aria-label="Open photo">
+      <img src="assets/projects/e-pedregosa-st/04.jpg" alt="E Pedregosa St photo 4" loading="lazy" />
+    </button>
+<button class="thumb" type="button" data-full="assets/projects/e-pedregosa-st/05.jpg" aria-label="Open photo">
+      <img src="assets/projects/e-pedregosa-st/05.jpg" alt="E Pedregosa St photo 5" loading="lazy" />
+    </button>
   </section>
 
   <div class="backline">
@@ -50,6 +60,15 @@
   </div>
 </main>
 
+  <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" type="button" data-close="true" aria-label="Close">✕</button>
+    <img id="lightboxImg" alt="" />
+  </div>
+</div>
+
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-backdrop" data-close="true"></div>
   <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Image viewer">
     <button class="lightbox-close" type="button" data-close="true" aria-label="Close">✕</button>
     <img id="lightboxImg" alt="" />

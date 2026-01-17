@@ -34,14 +34,22 @@
 <main class="wrap">
   <section class="page-head">
     <h1>Skyview Dr. Remodel</h1>
-    <p class="sub">Project photos.</p>
+    <p class="sub">Click any photo to enlarge.</p>
   </section>
 
-  <section class="proj-gallery" aria-label="Skyview Dr. Remodel photo gallery">
-    <img src="assets/projects/skyview-dr-remodel/01.jpg" alt="Skyview Dr. Remodel photo 1" loading="lazy" />
-<img src="assets/projects/skyview-dr-remodel/02.jpg" alt="Skyview Dr. Remodel photo 2" loading="lazy" />
-<img src="assets/projects/skyview-dr-remodel/03.jpg" alt="Skyview Dr. Remodel photo 3" loading="lazy" />
-<img src="assets/projects/skyview-dr-remodel/04.jpg" alt="Skyview Dr. Remodel photo 4" loading="lazy" />
+  <section class="grid" aria-label="Skyview Dr. Remodel photo gallery">
+    <button class="thumb" type="button" data-full="assets/projects/skyview-dr-remodel/01.jpg" aria-label="Open photo">
+      <img src="assets/projects/skyview-dr-remodel/01.jpg" alt="Skyview Dr. Remodel photo 1" loading="lazy" />
+    </button>
+<button class="thumb" type="button" data-full="assets/projects/skyview-dr-remodel/02.jpg" aria-label="Open photo">
+      <img src="assets/projects/skyview-dr-remodel/02.jpg" alt="Skyview Dr. Remodel photo 2" loading="lazy" />
+    </button>
+<button class="thumb" type="button" data-full="assets/projects/skyview-dr-remodel/03.jpg" aria-label="Open photo">
+      <img src="assets/projects/skyview-dr-remodel/03.jpg" alt="Skyview Dr. Remodel photo 3" loading="lazy" />
+    </button>
+<button class="thumb" type="button" data-full="assets/projects/skyview-dr-remodel/04.jpg" aria-label="Open photo">
+      <img src="assets/projects/skyview-dr-remodel/04.jpg" alt="Skyview Dr. Remodel photo 4" loading="lazy" />
+    </button>
   </section>
 
   <div class="backline">
@@ -49,6 +57,15 @@
   </div>
 </main>
 
+  <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" type="button" data-close="true" aria-label="Close">✕</button>
+    <img id="lightboxImg" alt="" />
+  </div>
+</div>
+
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-backdrop" data-close="true"></div>
   <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Image viewer">
     <button class="lightbox-close" type="button" data-close="true" aria-label="Close">✕</button>
     <img id="lightboxImg" alt="" />
