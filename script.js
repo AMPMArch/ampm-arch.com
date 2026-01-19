@@ -57,9 +57,11 @@
   if (lb) {
     lb.addEventListener("click", (e) => {
       const t = e.target;
+      if (t === lb) closeLb();
       if (t && t.dataset && t.dataset.close === "true") closeLb();
     });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLb(); });
+  });
   }
 
   // Contact form

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 \
 :root{
   --bg:#0b0d10;
@@ -7,23 +8,13 @@
   --line:rgba(11,13,16,.16);
   --max:1100px;
   --pad:clamp(18px,3.2vw,28px);
-  --font: "Futura","Futura PT","Avenir Next",Avenir,Segoe UI,Arial,sans-serif;
-}
-
-/* Global font enforcement */
-html, body, button, input, textarea, select, option {
-  font-family: var(--font);
+  --font: "Futura","Futura PT","Montserrat","Avenir Next",Avenir,"Segoe UI",Arial,sans-serif;
 }
 
 
-/* HARD global font enforcement */
+/* HARD global font enforcement (ensures no serif fallback) */
 html, body, button, input, textarea, select, option, h1,h2,h3,h4,h5,h6, p, a, span, div, li, label {
   font-family: var(--font) !important;
-}
-* { font-family: inherit !important; }
-
-* {
-  font-family: inherit;
 }
 
 
@@ -265,7 +256,8 @@ body:not(.home) .page-head{
 body:not(.home){ --pad:15px; }
 
 
-/* Lightbox */
+
+/* Lightbox (pseudo-backdrop to avoid stacking issues) */
 .lightbox{
   position:fixed;
   inset:0;
@@ -273,11 +265,11 @@ body:not(.home){ --pad:15px; }
   z-index:1000;
 }
 .lightbox.open{display:block}
-.lightbox-backdrop{
+.lightbox::before{
+  content:"";
   position:absolute;
   inset:0;
   background:rgba(255,255,255,.55);
-  z-index:0;
 }
 .lightbox-panel{
   position:relative;
@@ -298,7 +290,6 @@ body:not(.home){ --pad:15px; }
   max-height: 88vh;
   object-fit: contain;
   display:block;
-  background:transparent;
 }
 .lightbox-close{
   position:absolute;
