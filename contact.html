@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0d10" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="styles.css?v=13">
+
+  <title>Contact — AMPM Architecture &amp; Design</title>
+  <meta name="description" content="Contact AMPM Architecture &amp; Design." />
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="AMPM Architecture &amp; Design home">
+      <img src="assets/logo.png" alt="AMPM Architecture &amp; Design" />
+    </a>
+
+    <div class="menu" id="menu">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="menu-panel" id="menuPanel" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="work.html" data-nav="work">Our Work</a>
+        <a href="contact.html" data-nav="contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<main class="wrap">
+  <section class="page-head">
+    <h1>Contact</h1>
+    <p class="sub">Share your scope, location, and timeline. We’ll get back to you shortly.</p>
+  </section>
+
+  <section class="contact">
+    <div class="contact-left">
+      <div class="k">
+        <div class="k-label">Email</div>
+        <div class="k-value"><a href="mailto:info@ampm-arch.com">info@ampm-arch.com</a></div>
+      </div>
+      <div class="k">
+        <div class="k-label">Service Area</div>
+        <div class="k-value">San Diego • Santa Barbara</div>
+      </div>
+      <div class="k">
+        <div class="k-label">Typical Work</div>
+        <div class="k-value">Remodels, additions, ADUs</div>
+      </div>
+    </div>
+
+    <form class="form" id="contactForm" method="POST" action="https://formspree.io/f/mwvvkkkg" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" required />
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+      </div>
+
+      <div class="field">
+        <label for="location">Project location</label>
+        <input id="location" name="location" autocomplete="address-level2" placeholder="e.g., San Diego, CA" />
+      </div>
+
+      <div class="field">
+        <label for="message">Project details</label>
+        <textarea id="message" name="message" rows="7" required placeholder="Scope, timeline, constraints, and any helpful notes..."></textarea>
+      </div>
+
+      <button class="btn" type="submit">Send</button>
+      <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+      <p class="fineprint">Prefer email? <a href="mailto:info@ampm-arch.com">info@ampm-arch.com</a></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>AMPM Architecture &amp; Design — San Diego • Santa Barbara</div>
+    <div class="foot-right">
+      <a href="mailto:info@ampm-arch.com">info@ampm-arch.com</a>
+      <span class="dot">·</span>
+      <span>© <span id="year"></span></span>
+    </div>
+  </div>
+</footer>
+<script src="script.js?v=13" defer></script>
+
+</body>
+</html>
