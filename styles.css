@@ -306,3 +306,53 @@ body:not(.home){ --pad:15px; }
   font-size:18px;
   cursor:pointer;
 }
+
+
+/* BUILD v15 */
+
+/* All-caps everywhere except home page */
+.page.inner { text-transform: uppercase; letter-spacing: .02em; }
+.page.inner input, .page.inner textarea { text-transform: none; letter-spacing: normal; }
+
+/* Lightbox v15 - fixed full-screen, image above backdrop, no duplicate bars */
+.lightbox{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:9999;
+}
+.lightbox.open{display:block}
+.lightbox-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  z-index:0;
+}
+#lightboxImg{
+  position:absolute;
+  z-index:1;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  max-width:94vw;
+  max-height:88vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  opacity:1 !important;
+  filter:none !important;
+}
+.lightbox-close{
+  position:fixed;
+  z-index:2;
+  top:18px;
+  right:18px;
+  width:40px;
+  height:40px;
+  border:1px solid rgba(255,255,255,.35);
+  background:rgba(0,0,0,.35);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
