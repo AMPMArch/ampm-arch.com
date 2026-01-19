@@ -370,3 +370,37 @@ body:not(.home){ --pad:15px; }
 .page.inner .site-footer .wrap{ width:100% !important; max-width:1200px !important; margin:0 auto !important; padding-left:15px !important; padding-right:15px !important; }
 .page.inner{ text-transform:uppercase !important; }
 .page.inner input, .page.inner textarea, .page.inner select, .page.inner option{ text-transform:none !important; letter-spacing:normal !important; }
+
+/* --- Lightbox centering override (v17) --- */
+#lightbox{
+  position:fixed !important;
+  inset:0 !important;
+  display:none;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:24px !important;
+  background:rgba(0,0,0,.72) !important;
+  z-index:99999 !important;
+}
+#lightbox.open{ display:flex !important; }
+#lightboxImg{
+  position:relative !important;
+  left:auto !important;
+  top:auto !important;
+  transform:none !important;
+  margin:0 !important;
+  max-width:calc(100vw - 48px) !important;
+  max-height:calc(100vh - 48px) !important;
+  width:auto !important;
+  height:auto !important;
+  object-fit:contain !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  z-index:100000 !important;
+}
+#lightboxClose{
+  position:fixed !important;
+  top:16px !important;
+  right:16px !important;
+  z-index:100001 !important;
+}
