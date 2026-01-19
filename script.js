@@ -1,43 +1,57 @@
 (() => {
+  // Footer year
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  // Active menu item
+  // Active nav highlighting
   const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  const key = path.includes("work") ? "work" : path.includes("contact") ? "contact" : "home";
+  const key = path.startsWith("work") ? "work"
+           : path.startsWith("contact") ? "contact"
+           : path.startsWith("project-") ? "work"
+           : "home";
+
   document.querySelectorAll(".menu-panel a").forEach(a => {
     if (a.dataset.nav === key) a.classList.add("active");
   });
 
-  // Click-to-toggle menu for mobile + keyboard
+  // Collapsible menu (works for click + outside click + ESC)
   const menu = document.getElementById("menu");
-  const btn = document.getElementById("menuBtn");
+  const btn  = document.getElementById("menuBtn");
+
   if (menu && btn) {
-    const close = () => {
+    const closeMenu = () => {
       menu.classList.remove("open");
       btn.setAttribute("aria-expanded", "false");
     };
+
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const open = menu.classList.toggle("open");
       btn.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    document.addEventListener("click", (e) => { if (!menu.contains(e.target)) close(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
-  }
 
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target)) closeMenu();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
 
   // Lightbox (project pages)
   const lb = document.getElementById("lightbox");
   const lbImg = document.getElementById("lightboxImg");
+
   const openLb = (src, alt) => {
-    if (!lb || !lbImg) return;
+    if (!lb || !lbImg || !src) return;
     lbImg.src = src;
     lbImg.alt = alt || "";
     lb.classList.add("open");
     lb.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
   };
+
   const closeLb = () => {
     if (!lb || !lbImg) return;
     lb.classList.remove("open");
@@ -46,57 +60,64 @@
     document.body.style.overflow = "";
   };
 
-  document.querySelectorAll(".thumb").forEach((b) => {
-    b.addEventListener("click", () => {
-      const img = b.querySelector("img");
-      const full = b.dataset.full || img?.src;
-      openLb(full, img?.alt);
-    });
-  });
-
   if (lb) {
+    // Close on backdrop click OR close button click
     lb.addEventListener("click", (e) => {
       const t = e.target;
       if (t === lb) closeLb();
       if (t && t.dataset && t.dataset.close === "true") closeLb();
     });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLb(); });
-  });
-  }
 
-  // Contact form
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLb();
+    });
 
-  const form = document.getElementById("contactForm");
-  const status = document.getElementById("formStatus");
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      if (status) status.textContent = "";
+    // Delegate: any element with data-full or any img in .gallery/.grid opens
+    document.addEventListener("click", (e) => {
+      const el = e.target;
 
-      const name = form.querySelector("#name")?.value?.trim();
-      const email = form.querySelector("#email")?.value?.trim();
-      const message = form.querySelector("#message")?.value?.trim();
-
-      if (!name || !email || !message) {
-        if (status) status.textContent = "Please fill out your name, email, and project details.";
+      // If they clicked an <img> inside a gallery/grid
+      if (el && el.tagName === "IMG" && (el.closest(".gallery") || el.closest(".grid") || el.closest(".photo-grid"))) {
+        const src = el.getAttribute("data-full") || el.getAttribute("data-src") || el.currentSrc || el.src;
+        openLb(src, el.alt);
         return;
       }
 
+      // If they clicked a wrapper with data-full
+      const wrap = el && el.closest ? el.closest("[data-full]") : null;
+      if (wrap) {
+        openLb(wrap.getAttribute("data-full"), "");
+      }
+    });
+  }
+
+  // Contact form: basic UX (works with Formspree)
+  const form = document.querySelector("form[data-formspree]");
+  const status = document.getElementById("formStatus");
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      // Let browser handle required fields
+      if (!form.checkValidity()) return;
+
+      e.preventDefault();
+      const action = form.getAttribute("action");
+      const data = new FormData(form);
+
       try {
-        const res = await fetch(form.action, {
+        const res = await fetch(action, {
           method: "POST",
-          body: new FormData(form),
-          headers: { "Accept": "application/json" },
+          body: data,
+          headers: { "Accept": "application/json" }
         });
 
         if (res.ok) {
+          if (status) status.textContent = "Thanks — we’ll be in touch shortly.";
           form.reset();
-          if (status) status.textContent = "Thanks — message sent. We’ll get back to you shortly.";
         } else {
-          if (status) status.textContent = "Message failed to send. Please email info@ampm-arch.com.";
+          if (status) status.textContent = "Something went wrong. Please email info@ampm-arch.com.";
         }
       } catch {
-        if (status) status.textContent = "Network error. Please email info@ampm-arch.com.";
+        if (status) status.textContent = "Network issue. Please email info@ampm-arch.com.";
       }
     });
   }
